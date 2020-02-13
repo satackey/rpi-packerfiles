@@ -1,0 +1,29 @@
+{
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url" : "raspbian-ssh-docker.img",
+            "iso_checksum_type":"none",
+            "target_image_size": 4294967296
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "set -x",
+                "/etc/init.d/docker start",
+                "/etc/init.d/docker status >> /tmp/dockerstatus",
+                "cat /tmp/dockerstatus",
+                "whoami",
+                "ls -al /var/run/",
+                "docker ps",
+                "cd /tmp",
+                "docker run --rm --entrypoint=script/build/linux-entrypoint -v $(pwd)/dist:/code/dist -v $(pwd)/.git:/code/.git:ro satackey/docker-compose:1.24.1",
+                "cp dist/docker-compose-Linux-armv7l /usr/local/bin/docker-compose",
+                "chown root:root /usr/local/bin/docker-compose",
+                "chmod 755 /usr/local/bin/docker-compose"
+            ]
+        }
+    ]
+}

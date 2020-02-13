@@ -1,0 +1,16 @@
+{
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url" : "raspbian-secure_ssh.img",
+            "iso_checksum_type":"none",
+            "target_image_size": 4294967296
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/replace_user.sh"
+        }
+    ]
+}

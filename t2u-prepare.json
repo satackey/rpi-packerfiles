@@ -1,0 +1,17 @@
+{
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url" : "file:///img/2019-09-26-raspbian-buster-lite.img",
+            "iso_checksum_type":"sha256",
+            "iso_checksum":"fef882aa980cda898421e0f71328033c02cc314ed438b5ec8f39b03e641f31b1",
+            "target_image_size": 4294967296
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "./t2u-prepare.sh"
+        }
+    ]
+}

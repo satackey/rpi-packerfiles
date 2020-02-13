@@ -1,0 +1,16 @@
+{
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url": "file:///img/2019-09-26-raspbian-buster-lite-t2u-prepare.img",
+            "iso_checksum_type":"none",
+            "target_image_size": 4294967296
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "./t2u-nano.sh"
+        }
+    ]
+}

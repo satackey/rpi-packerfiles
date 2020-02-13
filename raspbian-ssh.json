@@ -1,0 +1,17 @@
+{
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url" : "http://ftp.jaist.ac.jp/pub/raspberrypi/raspbian_lite/images/raspbian_lite-2019-07-12/2019-07-10-raspbian-buster-lite.zip",
+            "iso_checksum_type":"sha256",
+            "iso_checksum":"9e5cf24ce483bb96e7736ea75ca422e3560e7b455eee63dd28f66fa1825db70e",
+            "target_image_size": 4294967296
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": ["systemctl enable sshd"]
+        }
+    ]
+}

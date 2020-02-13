@@ -1,0 +1,16 @@
+{
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url" : "raspbian-secure_ssh-replace_user-prepare_for_building_softethervpn.img",
+            "iso_checksum_type":"none",
+            "target_image_size": 4294967296
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/build_softethervpn.sh"
+        }
+    ]
+}

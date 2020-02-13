@@ -1,0 +1,17 @@
+{
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url" : "file:///img/img-eduroam-setup.img",
+            "iso_checksum_type":"sha256",
+            "iso_checksum":"be4ca28ec5bd43a9d2bea9884c48245b60337210c3375e4ee1bf24c12f44ee03",
+            "target_image_size": 4294967296
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": ["touch /boot/ssh"]
+        }
+    ]
+}
